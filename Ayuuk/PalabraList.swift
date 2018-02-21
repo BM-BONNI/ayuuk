@@ -9,6 +9,10 @@
 import UIKit
 
 class PalabraList: UITableViewCell {
+    @IBOutlet weak var lblcellAyuuk: UILabel!
+    @IBOutlet weak var lblcellAmexan: UILabel!
+    @IBOutlet weak var imgcellAap: UIImageView!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

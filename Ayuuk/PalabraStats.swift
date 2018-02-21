@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+struct PalabraStats:Decodable {
+    let español:String
+    let mixe:String
+    let imagen:String
+    let audio:String
+}

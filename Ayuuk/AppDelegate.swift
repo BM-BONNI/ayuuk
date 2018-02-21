@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Example1
+//  Ayuuk
 //
 //  Created by BM-BONNI on 29/01/18.
 //  Copyright © 2018 BM-BONNI. All rights reserved.

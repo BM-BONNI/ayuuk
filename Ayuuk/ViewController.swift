@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  Example1
+//  Ayuuk
 //
 //  Created by BM-BONNI on 29/01/18.
 //  Copyright © 2018 BM-BONNI. All rights reserved.
@@ -8,41 +8,81 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var txtPalabra: UITextField!
-    @IBOutlet var lblRes: UILabel!
-
+    @IBOutlet weak var tbPalabras: UITableView!
+    
+    
+    var palabras=[PalabraStats]()
+    
     @IBAction func btnBuscar(_ sender: UIButton) {
-        getWebServicePalabra()
+        downloadJsonPalabra{
+            self.tbPalabras.reloadData()
+        }
+        tbPalabras.delegate = self
+        tbPalabras.dataSource = self
     }
     
-    func getWebServicePalabra(){
-        let palabra = txtPalabra.text!
-        let url = URL(string: "http://localhost/webservice/busquedaMixe.php?id="+palabra)
-        let session = URLSession.shared
-        let task = session.dataTask(with: url!) { (data, response, error) in
-            if let content = data
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return palabras.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PalabraCell") as? PalabraList else{return UITableViewCell()}
+        //let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        
+        cell.lblcellAyuuk.text=palabras[indexPath.row].mixe
+        cell.lblcellAmexan.text=palabras[indexPath.row].español
+        
+        let imgcell = palabras[indexPath.row].imagen
+        
+        if imgcell.isEmpty{
+            cell.imgcellAap.image=#imageLiteral(resourceName: "notFound")
+        }else{
+            let imgcellParse = imgcell.addingPercentEncoding(withAllowedCharacters: .alphanumerics)!
+            if let imageURL = URL(string: "http://diidxa.itistmo.edu.mx/app/capturista/traduccion/images/\(imgcellParse)")
+            //if let imageURL = URL(string: "http://localhost:8888/app/capturista/traduccion/images/\(imgcellParse)")
             {
-                do{
-                    /*let json = try JSONSerialization.jsonObject(with: content, options: .mutableContainers)
-                    let jsonData = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
-                    var jsonString = String()
-                    jsonString = String(data: jsonData, encoding: .utf8)!
-                    print(jsonString)*/
-                    
-                    if let myJSON = try JSONSerialization.jsonObject(with: content, options: .mutableContainers) as? [[String:Any]]{
-                        for data in myJSON
-                        {
-                            DispatchQueue.main.async
-                            {
-                                self.lblRes.text = data["mixe"] as? String
-                            }
+                DispatchQueue.global().async {
+                    let data = try? Data(contentsOf: imageURL)
+                    if let data = data{
+                        let img = UIImage(data: data)
+                        DispatchQueue.main.async {
+                            cell.imgcellAap.image=img
                         }
                     }
                 }
-                catch{ print(error) }
+            }
+        }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showDetails", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? PalabraViewController{
+            destination.palabra = palabras[(tbPalabras.indexPathForSelectedRow?.row)!]
+        }
+    }
+    
+    func downloadJsonPalabra(completed: @escaping () ->()){
+        let palabra = txtPalabra.text!.addingPercentEncoding(withAllowedCharacters: .alphanumerics)!
+        let url = URL(string: "http://diidxa.itistmo.edu.mx/webservice/diccionarioMixe.php?id=\(palabra)")
+        //let url = URL(string: "http://localhost:8888/webservice/diccionarioMixe.php?id=\(palabra)")
+        let session = URLSession.shared
+        let task = session.dataTask(with: url!) { (data, response, error) in
+            if error == nil{
+                do{
+                    self.palabras = try JSONDecoder().decode([PalabraStats].self, from: data!)
+                    DispatchQueue.main.async {
+                        completed()
+                    }
+                }catch{}
             }
         }
         task.resume()
     }
 }
+
