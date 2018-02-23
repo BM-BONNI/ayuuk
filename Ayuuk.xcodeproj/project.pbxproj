@@ -8,26 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		F0783101201F970900673863 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0783100201F970900673863 /* AppDelegate.swift */; };
-		F0783103201F970900673863 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0783102201F970900673863 /* ViewController.swift */; };
+		F0783103201F970900673863 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0783102201F970900673863 /* Dictionary.swift */; };
 		F0783106201F970900673863 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0783104201F970900673863 /* Main.storyboard */; };
 		F0783108201F970900673863 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0783107201F970900673863 /* Assets.xcassets */; };
 		F078310B201F970900673863 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0783109201F970900673863 /* LaunchScreen.storyboard */; };
 		F085A52A203C03C400709DA9 /* PalabraList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F085A529203C03C400709DA9 /* PalabraList.swift */; };
-		F0D52747203B8CAE00C1F6F0 /* PalabraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D52746203B8CAE00C1F6F0 /* PalabraViewController.swift */; };
-		F0D52749203B900B00C1F6F0 /* PalabraStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D52748203B900B00C1F6F0 /* PalabraStats.swift */; };
+		F0B9BBF4203FE27E003E4C48 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9BBF3203FE27E003E4C48 /* Search.swift */; };
+		F0B9BBF6203FEB38003E4C48 /* PalabraStatsSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B9BBF5203FEB38003E4C48 /* PalabraStatsSearch.swift */; };
+		F0D52747203B8CAE00C1F6F0 /* DictionaryPalabraDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D52746203B8CAE00C1F6F0 /* DictionaryPalabraDetails.swift */; };
+		F0D52749203B900B00C1F6F0 /* PalabraStatsDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D52748203B900B00C1F6F0 /* PalabraStatsDictionary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F07830FD201F970900673863 /* Ayuuk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ayuuk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0783100201F970900673863 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F0783102201F970900673863 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F0783102201F970900673863 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		F0783105201F970900673863 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F0783107201F970900673863 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F078310A201F970900673863 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F078310C201F970900673863 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F085A529203C03C400709DA9 /* PalabraList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PalabraList.swift; sourceTree = "<group>"; };
-		F0D52746203B8CAE00C1F6F0 /* PalabraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PalabraViewController.swift; sourceTree = "<group>"; };
-		F0D52748203B900B00C1F6F0 /* PalabraStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PalabraStats.swift; sourceTree = "<group>"; };
+		F0B9BBF3203FE27E003E4C48 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		F0B9BBF5203FEB38003E4C48 /* PalabraStatsSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PalabraStatsSearch.swift; sourceTree = "<group>"; };
+		F0D52746203B8CAE00C1F6F0 /* DictionaryPalabraDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryPalabraDetails.swift; sourceTree = "<group>"; };
+		F0D52748203B900B00C1F6F0 /* PalabraStatsDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PalabraStatsDictionary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,13 +65,15 @@
 			isa = PBXGroup;
 			children = (
 				F0783100201F970900673863 /* AppDelegate.swift */,
-				F0D52746203B8CAE00C1F6F0 /* PalabraViewController.swift */,
-				F0D52748203B900B00C1F6F0 /* PalabraStats.swift */,
-				F0783102201F970900673863 /* ViewController.swift */,
-				F0783104201F970900673863 /* Main.storyboard */,
+				F0783102201F970900673863 /* Dictionary.swift */,
+				F0D52748203B900B00C1F6F0 /* PalabraStatsDictionary.swift */,
+				F0D52746203B8CAE00C1F6F0 /* DictionaryPalabraDetails.swift */,
+				F0B9BBF3203FE27E003E4C48 /* Search.swift */,
+				F0B9BBF5203FEB38003E4C48 /* PalabraStatsSearch.swift */,
 				F085A529203C03C400709DA9 /* PalabraList.swift */,
-				F0783107201F970900673863 /* Assets.xcassets */,
 				F0783109201F970900673863 /* LaunchScreen.storyboard */,
+				F0783104201F970900673863 /* Main.storyboard */,
+				F0783107201F970900673863 /* Assets.xcassets */,
 				F078310C201F970900673863 /* Info.plist */,
 			);
 			path = Ayuuk;
@@ -150,11 +156,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0D52747203B8CAE00C1F6F0 /* PalabraViewController.swift in Sources */,
+				F0D52747203B8CAE00C1F6F0 /* DictionaryPalabraDetails.swift in Sources */,
 				F085A52A203C03C400709DA9 /* PalabraList.swift in Sources */,
-				F0783103201F970900673863 /* ViewController.swift in Sources */,
+				F0783103201F970900673863 /* Dictionary.swift in Sources */,
+				F0B9BBF4203FE27E003E4C48 /* Search.swift in Sources */,
+				F0B9BBF6203FEB38003E4C48 /* PalabraStatsSearch.swift in Sources */,
 				F0783101201F970900673863 /* AppDelegate.swift in Sources */,
-				F0D52749203B900B00C1F6F0 /* PalabraStats.swift in Sources */,
+				F0D52749203B900B00C1F6F0 /* PalabraStatsDictionary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
